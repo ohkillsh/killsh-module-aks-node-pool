@@ -11,7 +11,8 @@ This module provisions an AKS node pool that will attach to an AKS cluster. The 
 - AKS cluster
 
 ## Example Usage
-```
+
+```hcl
 ## Create a resource group to place resources
 resource "azurerm_resource_group" "aks" {
   name     = "aks"
@@ -34,7 +35,7 @@ module "network" {
 
 ## Create the AKS cluster
 module "cluster" {
-  source                   = "git@github.com:FairwindsOps/azure-terraform-modules.git//aks_cluster"
+  source                   = "git@github.com:ohkillsh/killsh-module-aks.git"
   region                   = "centralus"
   cluster_name             = "myakscluster"
   resource_group_name      = azurerm_resource_group.aks.name
@@ -49,13 +50,12 @@ module "cluster" {
 
 ## Create the node pool
 module "node_pool" {
-  source             = "git@github.com:FairwindsOps/azure-terraform-modules.git//aks_node_pool"
+  source             = "git@github.com:ohkillsh/killsh-module-aks-node-pool.git"
   name               = "myakspool"
   aks_cluster_id     = module.cluster.id
   kubernetes_version = "1.16.9"
   node_subnet_id     = module.network.subnets[0]
 }
-
 ```
 
 ## Configuration
