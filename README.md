@@ -71,6 +71,7 @@ The following table lists the configurable parameters that this module accepts.
 | `kubernetes_version`    | Kubernetes version the node pool will run                      | `None`             |
 | `max_count`             | Max amount of nodes to autoscale                               | `null`             |
 | `max_pods`              | Max amount of pods per node (subject to CNI)                   | `200`              |
+| `node_mode`             | Node type to run containers                                    | `User`             |
 | `min_count`             | Min amount of nodes for autoscaling (must be greater than 0)   | `null`             |
 | `name`                  | The name of the node_pool                                      | `None`             |
 | `node_count`            | The initial node count                                         | `1`                |
