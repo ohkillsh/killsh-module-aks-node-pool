@@ -54,6 +54,12 @@ variable "max_pods" {
   default     = 200
 }
 
+variable "node_mode" {
+  type        = string
+  description = "Should this Node Pool be used for System or User resources? Possible values are System and User. Defaults to User."
+  default     = "User"
+}
+
 variable "max_surge" {
   type        = string
   description = "How many more nodes per pool can be created during an image upgrade process, expressed as a percentage of the current number of nodes in the pool."
